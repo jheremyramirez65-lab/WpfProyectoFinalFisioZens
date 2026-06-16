@@ -24,14 +24,14 @@ namespace WpfProyectoFinal
             InitializeComponent();
         }
 
-        private void btnAceptar_Click(object sender, RoutedEventArgs e)
+        private void btnIniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow ventana = new MainWindow();
-            ventana.Show();
+            MainWindow menu = new MainWindow();
+            menu.Show();
             this.Close();
         }
 
-        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
+        private void btnCrearCuenta_Click(object sender, RoutedEventArgs e)
         {
             WinSignUp registro = new WinSignUp();
             registro.ShowDialog();
