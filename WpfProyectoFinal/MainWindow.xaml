@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Sistema de Fisioterapia - Menú Principal"
         Icon="/imgs/logo.png"
-    Height="600"
+    Height="650"
     Width="1200"
     WindowStartupLocation="CenterScreen">
 
