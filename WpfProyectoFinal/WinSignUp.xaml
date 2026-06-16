@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfProyectoFinal"
         mc:Ignorable="d"
             Title="Registro - FisioZens"
-    Height="750"
+    Height="800"
     Width="520"
     Icon="/imgs/logo.png"
     WindowStartupLocation="CenterScreen"
@@ -28,6 +28,9 @@
 
                 <TextBlock Text="Nombre"/>
                 <TextBox x:Name="txtNombre" Height="36" Margin="0,5,0,10"/>
+
+                <TextBlock Text="Usuario"/>
+                <TextBox x:Name="txtNombreUsuario" Height="36" Margin="0,5,0,10"/>
 
                 <TextBlock Text="Apellido"/>
                 <TextBox x:Name="txtApellido" Height="36" Margin="0,5,0,10"/>
