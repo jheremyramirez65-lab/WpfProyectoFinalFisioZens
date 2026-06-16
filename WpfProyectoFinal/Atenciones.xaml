@@ -7,31 +7,52 @@
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800">
     <Grid Background="AliceBlue" Margin="10">
-        <StackPanel Margin="30">
-            <TextBlock Text="Agregar Atenciones"
-                       FontSize="30"
+        <StackPanel Margin="25">
+
+            <TextBlock Text="Nueva Atención"
+                       FontSize="28"
                        FontWeight="Bold"
                        Foreground="#1F2937"
-                       Margin="0,0,0,20"/>
+                       Margin="0,0,0,15"/>
 
             <TextBlock Text="Paciente"/>
-            <TextBox x:Name="txtPaciente" Height="35" Margin="0,5,0,10"/>
+            <ComboBox x:Name="cbPaciente"
+                      Height="34"
+                      Margin="0,5,0,10"
+                      DisplayMemberPath="NombreCompleto"
+                      SelectedValuePath="IdPaciente"/>
 
-            <TextBlock Text="Fisioterapeuta"/>
-            <TextBox x:Name="txtFisioterapeuta" Height="35" Margin="0,5,0,10"/>
+            <TextBlock Text="Fisioterapeuta disponible"/>
+            <ComboBox x:Name="cbFisioterapeuta"
+                      Height="34"
+                      Margin="0,5,0,10"
+                      DisplayMemberPath="NombreCompleto"
+                      SelectedValuePath="IdFisioterapeuta"/>
 
             <TextBlock Text="Tratamiento"/>
-            <TextBox x:Name="txtTratamiento" Height="35" Margin="0,5,0,10"/>
+            <ComboBox x:Name="cbTratamiento"
+                      Height="34"
+                      Margin="0,5,0,10"
+                      DisplayMemberPath="NombreTratamiento"
+                      SelectedValuePath="IdTratamiento"/>
 
             <TextBlock Text="Observación"/>
-            <TextBox x:Name="txtObservacion" Height="70" Margin="0,5,0,10"/>
+            <TextBox x:Name="txtObservacion"
+                     Height="60"
+                     Margin="0,5,0,10"
+                     TextWrapping="Wrap"/>
 
             <Button x:Name="btnGuardarAtencion"
-                Content="Guardar Atención"
+                    Content="Guardar Atención"
                     Height="40"
                     Background="#0F4C81"
                     Foreground="White"
                     Click="btnGuardarAtencion_Click"/>
+
+            <DataGrid x:Name="dgAtenciones"
+                      Height="170"
+                      Margin="0,15,0,0"
+                      AutoGenerateColumns="True"/>
         </StackPanel>
     </Grid>
 </UserControl>
