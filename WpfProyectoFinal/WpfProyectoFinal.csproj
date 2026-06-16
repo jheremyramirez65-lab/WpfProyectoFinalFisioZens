@@ -55,12 +55,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Atenciones.xaml.cs">
+      <DependentUpon>Atenciones.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion.xaml.cs">
+      <DependentUpon>Facturacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pacientes.xaml.cs">
+      <DependentUpon>Pacientes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinLogin.xaml.cs">
       <DependentUpon>WinLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinSignUp.xaml.cs">
       <DependentUpon>WinSignUp.xaml</DependentUpon>
     </Compile>
+    <Page Include="Atenciones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Facturacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,6 +90,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pacientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

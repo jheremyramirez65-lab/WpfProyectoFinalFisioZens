@@ -10,29 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfProyectoFinal
 {
     /// <summary>
-    /// Lógica de interacción para WinSignUp.xaml
+    /// Lógica de interacción para Pacientes.xaml
     /// </summary>
-    public partial class WinSignUp : Window
+    public partial class Pacientes : UserControl
     {
-        public WinSignUp()
+        public Pacientes()
         {
             InitializeComponent();
-        }
-
-        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Usuario registrado correctamente");
-            this.Close();
-        }
-
-        private void btnCancelar_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

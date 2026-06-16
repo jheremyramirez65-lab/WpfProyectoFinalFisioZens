@@ -55,20 +55,22 @@
                     Foreground="White"
                     BorderThickness="0" Click="btnAgregarAtenciones_Click"/>
 
-                <Button Content="Facturación"
+                <Button x:Name="btnFacturacion"
+                    Content="Facturación"
                     Height="50"
                     Margin="10"
                     Background="#1A5D96"
                     Foreground="White"
-                    BorderThickness="0" Click="Button_Click"/>
+                    BorderThickness="0" Click="btnFacturacion_Click"/>
 
 
-                <Button Content="Cerrar Sesion"
+                <Button x:Name="CerrarSesion"
+                    Content="Cerrar Sesion"
                     Height="50"
                     Margin="10"
                     Background="#C0392B"
                     Foreground="White"
-                    BorderThickness="0" Click="Button_Click_1"/>
+                    BorderThickness="0" Click="CerrarSesion_Click"/>
             </StackPanel>
 
         </Border>
@@ -99,15 +101,12 @@
             </StackPanel>
 
             <!-- TARJETAS -->
-            <UniformGrid Grid.Row="1"
-                     Columns="3"
-                     Margin="10"
-                         Background="AliceBlue">
-                <Image Source="imgs/logo.png" Margin="194,10,-307,24"/>
-
-            </UniformGrid>
+            <ContentControl x:Name="contenedorPrincipal"
+                Grid.Row="1"
+                Margin="10"/>
 
         </Grid>
+
 
     </Grid>
 </Window>
