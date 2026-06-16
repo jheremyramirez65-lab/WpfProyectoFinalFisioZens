@@ -93,6 +93,22 @@ namespace WpfProyectoFinal
                     cmd.Parameters.AddWithValue("@Contrasena", txtPassword.Password);
 
                     cmd.ExecuteNonQuery();
+
+                    System.IO.Directory.CreateDirectory("Archivos");
+
+                    string datosUsuario =
+                        $"Nombre: {txtNombre.Text}\n" +
+                        $"Apellido: {txtApellido.Text}\n" +
+                        $"Usuario: {txtNombreUsuario.Text}\n" +
+                        $"Correo: {txtCorreo.Text}\n" +
+                        $"Celular: {txtCelular.Text}\n" +
+                        $"País: {pais}\n" +
+                        $"Género: {genero}\n" +
+                        $"Rol: Recepcionista\n" +
+                        $"Fecha registro: {DateTime.Now}\n" +
+                        "-----------------------------\n";
+
+                    System.IO.File.AppendAllText("Archivos/usuarios.txt", datosUsuario);
                 }
 
                 MessageBox.Show("Cuenta de recepcionista creada correctamente.");

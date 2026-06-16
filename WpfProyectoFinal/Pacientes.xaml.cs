@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,11 +25,29 @@ namespace WpfProyectoFinal
     /// </summary>
     public partial class Pacientes : UserControl
     {
-        private List<Paciente> listaPacientes = new List<Paciente>();
+        string conexion = @"Data Source=LAPTOP-L87KBM03\FISIOTERAPIA;Initial Catalog=BDFisioterapia;User ID=sa;Password=123456";
+
         public Pacientes()
         {
             InitializeComponent();
-            dgPacientes.ItemsSource = listaPacientes;
+            CargarPacientes();
+        }
+
+        private void CargarPacientes()
+        {
+            using (SqlConnection cn = new SqlConnection(conexion))
+            {
+                cn.Open();
+
+                SqlDataAdapter da = new SqlDataAdapter(
+                    "SELECT IdPaciente, Nombre, Apellido, CI, Telefono, FechaNacimiento, Diagnostico FROM Paciente",
+                    cn);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                dgPacientes.ItemsSource = dt.DefaultView;
+            }
         }
 
         private void btnGuardarPaciente_Click(object sender, RoutedEventArgs e)
@@ -34,42 +55,78 @@ namespace WpfProyectoFinal
             try
             {
                 if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                    string.IsNullOrWhiteSpace(txtCi.Text) ||
-                    string.IsNullOrWhiteSpace(txtTelefono.Text) ||
-                    string.IsNullOrWhiteSpace(txtEdad.Text) ||
-                    string.IsNullOrWhiteSpace(txtDiagnostico.Text))
+                    string.IsNullOrWhiteSpace(txtApellido.Text) ||
+                    string.IsNullOrWhiteSpace(txtCI.Text) ||
+                    string.IsNullOrWhiteSpace(txtTelefono.Text))
                 {
-                    MessageBox.Show("Complete todos los campos.");
+                    MessageBox.Show("Complete los campos obligatorios.");
                     return;
                 }
 
-                if (!int.TryParse(txtEdad.Text, out int edad))
+                if (!Regex.IsMatch(txtTelefono.Text, @"^\d{8,10}$"))
                 {
-                    MessageBox.Show("La edad debe ser un número.");
+                    MessageBox.Show("El teléfono debe tener entre 8 y 10 números.");
                     return;
                 }
 
-                Paciente paciente = new Paciente
+                using (SqlConnection cn = new SqlConnection(conexion))
                 {
-                    Nombre = txtNombre.Text,
-                    Ci = txtCi.Text,
-                    Telefono = txtTelefono.Text,
-                    Edad = edad,
-                    Diagnostico = txtDiagnostico.Text
-                };
+                    cn.Open();
 
-                listaPacientes.Add(paciente);
-                dgPacientes.Items.Refresh();
+                    string query = @"
+                        INSERT INTO Paciente
+                        (Nombre, Apellido, CI, Telefono, FechaNacimiento, Diagnostico)
+                        VALUES
+                        (@Nombre, @Apellido, @CI, @Telefono, @FechaNacimiento, @Diagnostico)";
 
-                string datos = $"{paciente.Nombre};{paciente.Ci};{paciente.Telefono};{paciente.Edad};{paciente.Diagnostico}\n";
-                File.AppendAllText("pacientes.txt", datos);
+                    SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
+                    cmd.Parameters.AddWithValue("@Apellido", txtApellido.Text);
+                    cmd.Parameters.AddWithValue("@CI", txtCI.Text);
+                    cmd.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
+                    cmd.Parameters.AddWithValue("@FechaNacimiento", dpFechaNacimiento.SelectedDate ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Diagnostico", txtDiagnostico.Text);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                Directory.CreateDirectory("Archivos");
+
+                string datos =
+                    $"Nombre: {txtNombre.Text}\n" +
+                    $"Apellido: {txtApellido.Text}\n" +
+                    $"CI: {txtCI.Text}\n" +
+                    $"Teléfono: {txtTelefono.Text}\n" +
+                    $"Fecha nacimiento: {dpFechaNacimiento.SelectedDate}\n" +
+                    $"Diagnóstico: {txtDiagnostico.Text}\n" +
+                    $"Fecha registro: {DateTime.Now}\n" +
+                    "-----------------------------\n";
+
+                File.AppendAllText("Archivos/pacientes.txt", datos);
 
                 MessageBox.Show("Paciente guardado correctamente.");
+
+                LimpiarCampos();
+                CargarPacientes();
             }
-            catch (System.Exception ex)
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error SQL: " + ex.Message);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar paciente: " + ex.Message);
             }
+        }
+
+        private void LimpiarCampos()
+        {
+            txtNombre.Clear();
+            txtApellido.Clear();
+            txtCI.Clear();
+            txtTelefono.Clear();
+            txtDiagnostico.Clear();
+            dpFechaNacimiento.SelectedDate = null;
         }
     }
 }

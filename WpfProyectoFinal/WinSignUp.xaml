@@ -29,11 +29,11 @@
                 <TextBlock Text="Nombre"/>
                 <TextBox x:Name="txtNombre" Height="36" Margin="0,5,0,10"/>
 
-                <TextBlock Text="Usuario"/>
-                <TextBox x:Name="txtNombreUsuario" Height="36" Margin="0,5,0,10"/>
-
                 <TextBlock Text="Apellido"/>
                 <TextBox x:Name="txtApellido" Height="36" Margin="0,5,0,10"/>
+
+                <TextBlock Text="Usuario"/>
+                <TextBox x:Name="txtNombreUsuario" Height="36" Margin="0,5,0,10"/>
 
                 <TextBlock Text="Contraseña"/>
                 <PasswordBox x:Name="txtPassword" Height="36" Margin="0,5,0,10"/>

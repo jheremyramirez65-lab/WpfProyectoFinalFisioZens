@@ -136,10 +136,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Archivos de texto\atenciones.txt" />
+    <Resource Include="Archivos de texto\facturas.txt" />
+    <Resource Include="Archivos de texto\pacientes.txt" />
+    <Resource Include="Archivos de texto\usuarios.txt" />
     <Content Include="database\BDFisioterapia.sql" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="imgs\logo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

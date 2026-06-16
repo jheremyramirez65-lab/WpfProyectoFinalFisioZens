@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfProyectoFinal"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="800">
+             d:DesignHeight="750" d:DesignWidth="800">
 
     <Grid Background="AliceBlue" Margin="10">
         <StackPanel Margin="25">
@@ -15,24 +15,34 @@
                        FontWeight="Bold"
                        Margin="0,0,0,15"/>
 
-            <TextBox x:Name="txtNombre" Height="30" Margin="0,5" />
-            <TextBox x:Name="txtCi" Height="30" Margin="0,5" />
-            <TextBox x:Name="txtTelefono" Height="30" Margin="0,5" />
-            <TextBox x:Name="txtEdad" Height="30" Margin="0,5" />
-            <TextBox x:Name="txtDiagnostico" Height="30" Margin="0,5" />
+            <TextBlock Text="Nombre"/>
+            <TextBox x:Name="txtNombre" Height="32" Margin="0,5,0,10"/>
 
-            <Button x:Name="btnGuardarPacientes"
-                Content="Guardar Paciente"
-                    Height="38"
-                    Margin="0,10"
+            <TextBlock Text="Apellido"/>
+            <TextBox x:Name="txtApellido" Height="32" Margin="0,5,0,10"/>
+
+            <TextBlock Text="CI"/>
+            <TextBox x:Name="txtCI" Height="32" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Teléfono"/>
+            <TextBox x:Name="txtTelefono" Height="32" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Fecha de nacimiento"/>
+            <DatePicker x:Name="dpFechaNacimiento" Height="32" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Diagnóstico"/>
+            <TextBox x:Name="txtDiagnostico" Height="60" Margin="0,5,0,10"/>
+
+            <Button Content="Guardar Paciente"
+                    Height="40"
                     Background="#0F4C81"
                     Foreground="White"
                     Click="btnGuardarPaciente_Click"/>
 
             <DataGrid x:Name="dgPacientes"
-                      Height="180"
-                      AutoGenerateColumns="True"
-                      Margin="0,15"/>
+                      Height="170"
+                      Margin="0,15,0,0"
+                      AutoGenerateColumns="True"/>
         </StackPanel>
     </Grid>
 </UserControl>
