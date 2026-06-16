@@ -56,11 +56,6 @@
                     Foreground="White"
                     BorderThickness="0" Click="btnCrearCuenta_Click"/>
 
-                <TextBlock Text="Usuario prueba: admin / 123456"
-                       Foreground="#6B7280"
-                       FontSize="13"
-                       HorizontalAlignment="Center"
-                       Margin="0,20,0,0"/>
             </StackPanel>
 
         </Border>
