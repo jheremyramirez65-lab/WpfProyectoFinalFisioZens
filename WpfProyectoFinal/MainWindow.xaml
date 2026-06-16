@@ -1,0 +1,113 @@
+﻿<Window x:Class="WpfProyectoFinal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfProyectoFinal"
+        mc:Ignorable="d"
+        Title="Sistema de Fisioterapia - Menú Principal"
+        Icon="/imgs/logo.png"
+    Height="600"
+    Width="1200"
+    WindowStartupLocation="CenterScreen">
+
+    <Grid Background="#F4F8FB">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0"
+            Background="#0F4C81">
+
+            <StackPanel VerticalAlignment="Center"
+                    Margin="10">
+
+                <TextBlock Text="FisioZens"
+                       Foreground="White"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Margin="0,30,0,40"/>
+
+                <Button x:Name="btnInicio" 
+                    Content="Inicio"
+                    Height="50"
+                    Margin="10"
+                    Background="#1A5D96"
+                    Foreground="White"
+                    BorderThickness="0" Click="btnInicio_Click"/>
+
+                <Button x:Name="btnAgregarPacientes"
+                    Content="Agregar Pacientes"
+                    Height="50"
+                    Margin="10"
+                    Background="#1A5D96"
+                    Foreground="White"
+                    BorderThickness="0" Click="btnAgregarPacientes_Click"/>
+
+                <Button x:Name="btnAgregarAtenciones"
+                    Content="Agregar Atenciones"
+                    Height="50"
+                    Margin="10"
+                    Background="#1A5D96"
+                    Foreground="White"
+                    BorderThickness="0" Click="btnAgregarAtenciones_Click"/>
+
+                <Button Content="Facturación"
+                    Height="50"
+                    Margin="10"
+                    Background="#1A5D96"
+                    Foreground="White"
+                    BorderThickness="0" Click="Button_Click"/>
+
+
+                <Button Content="Cerrar Sesion"
+                    Height="50"
+                    Margin="10"
+                    Background="#C0392B"
+                    Foreground="White"
+                    BorderThickness="0" Click="Button_Click_1"/>
+            </StackPanel>
+
+        </Border>
+
+        <!-- CONTENIDO -->
+        <Grid Grid.Column="1"
+          Margin="25">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- CABECERA -->
+            <StackPanel Margin="10">
+
+                <TextBlock Text="Menú Principal"
+                       FontSize="36"
+                       FontWeight="Bold"
+                       Foreground="#1F2937"
+                       HorizontalAlignment="Center"/>
+
+                <TextBlock Text="Bienvenido al Sistema de Gestión de Fisioterapia"
+                       FontSize="18"
+                       Foreground="#6B7280"
+                       HorizontalAlignment="Center"
+                       Margin="0,10,0,20"/>
+            </StackPanel>
+
+            <!-- TARJETAS -->
+            <UniformGrid Grid.Row="1"
+                     Columns="3"
+                     Margin="10"
+                         Background="AliceBlue">
+                <Image Source="imgs/logo.png" Margin="194,10,-307,24"/>
+
+            </UniformGrid>
+
+        </Grid>
+
+    </Grid>
+</Window>
