@@ -5,8 +5,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfProyectoFinal"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Grid Background="AliceBlue" Margin="10">
+        <StackPanel Margin="30">
+            <TextBlock Text="Agregar Atenciones"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       Foreground="#1F2937"
+                       Margin="0,0,0,20"/>
+
+            <TextBlock Text="Paciente"/>
+            <TextBox x:Name="txtPaciente" Height="35" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Fisioterapeuta"/>
+            <TextBox x:Name="txtFisioterapeuta" Height="35" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Tratamiento"/>
+            <TextBox x:Name="txtTratamiento" Height="35" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Observación"/>
+            <TextBox x:Name="txtObservacion" Height="70" Margin="0,5,0,10"/>
+
+            <Button x:Name="btnGuardarAtencion"
+                Content="Guardar Atención"
+                    Height="40"
+                    Background="#0F4C81"
+                    Foreground="White"
+                    Click="btnGuardarAtencion_Click"/>
+        </StackPanel>
     </Grid>
 </UserControl>

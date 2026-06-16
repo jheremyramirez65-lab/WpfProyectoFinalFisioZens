@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.IO;
+
 namespace WpfProyectoFinal
 {
     /// <summary>
@@ -23,6 +26,28 @@ namespace WpfProyectoFinal
         public Facturacion()
         {
             InitializeComponent();
+        }
+
+        private void btnGuardarFactura_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog guardar = new SaveFileDialog();
+            guardar.Filter = "Archivo de texto (*.txt)|*.txt";
+            guardar.FileName = "factura_fisiozens.txt";
+
+            if (guardar.ShowDialog() == true)
+            {
+                string contenido =
+                    "FACTURA FISIOZENS\n" +
+                    "----------------------\n" +
+                    "Paciente: " + txtPaciente.Text + "\n" +
+                    "Tratamiento: " + txtTratamiento.Text + "\n" +
+                    "Monto: " + txtMonto.Text + " Bs.\n" +
+                    "Fecha: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                File.WriteAllText(guardar.FileName, contenido);
+
+                MessageBox.Show("Factura guardada correctamente.");
+            }
         }
     }
 }

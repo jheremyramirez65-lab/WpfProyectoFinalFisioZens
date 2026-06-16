@@ -5,8 +5,30 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfProyectoFinal"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="400" d:DesignWidth="800">
+    <Grid Background="AliceBlue" Margin="10">
+        <StackPanel Margin="30">
+            <TextBlock Text="Facturación"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       Foreground="#1F2937"
+                       Margin="0,0,0,20"/>
+
+            <TextBlock Text="Paciente"/>
+            <TextBox x:Name="txtPaciente" Height="35" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Tratamiento"/>
+            <TextBox x:Name="txtTratamiento" Height="35" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Monto Bs."/>
+            <TextBox x:Name="txtMonto" Height="35" Margin="0,5,0,10"/>
+
+            <Button x:Name="btnGuardarFactura"
+                Content="Guardar Factura en TXT"
+                    Height="40"
+                    Background="#0F4C81"
+                    Foreground="White"
+                    Click="btnGuardarFactura_Click"/>
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -6,7 +6,32 @@
              xmlns:local="clr-namespace:WpfProyectoFinal"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Background="AliceBlue" Margin="10">
+        <StackPanel Margin="30">
+            <TextBlock Text="Agregar Pacientes"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       Foreground="#1F2937"
+                       Margin="0,0,0,20"/>
+
+            <TextBlock Text="Nombre del paciente"/>
+            <TextBox x:Name="txtNombre" Height="35" Margin="0,5,0,10"/>
+
+            <TextBlock Text="CI"/>
+            <TextBox x:Name="txtCi" Height="35" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Teléfono"/>
+            <TextBox x:Name="txtTelefono" Height="35" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Edad"/>
+            <TextBox x:Name="txtEdad" Height="35" Margin="0,5,0,10"/>
+
+            <Button x:Name="btnGuardarPaciente"
+                Content="Guardar Paciente"
+                    Height="40"
+                    Background="#0F4C81"
+                    Foreground="White"
+                    Click="btnGuardarPaciente_Click"/>
+        </StackPanel>
     </Grid>
 </UserControl>

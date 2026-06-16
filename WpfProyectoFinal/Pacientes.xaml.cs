@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.IO;
+
 namespace WpfProyectoFinal
 {
     /// <summary>
@@ -23,6 +25,26 @@ namespace WpfProyectoFinal
         public Pacientes()
         {
             InitializeComponent();
+        }
+
+        private void btnGuardarPaciente_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("Ingrese el nombre del paciente.");
+                return;
+            }
+
+            string datos =
+                $"Nombre: {txtNombre.Text}\n" +
+                $"CI: {txtCi.Text}\n" +
+                $"Teléfono: {txtTelefono.Text}\n" +
+                $"Edad: {txtEdad.Text}\n" +
+                "--------------------------\n";
+
+            File.AppendAllText("pacientes.txt", datos);
+
+            MessageBox.Show("Paciente guardado correctamente.");
         }
     }
 }

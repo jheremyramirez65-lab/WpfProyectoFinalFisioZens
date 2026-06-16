@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.IO;
+
 namespace WpfProyectoFinal
 {
     /// <summary>
@@ -23,6 +25,21 @@ namespace WpfProyectoFinal
         public Atenciones()
         {
             InitializeComponent();
+        }
+
+        private void btnGuardarAtencion_Click(object sender, RoutedEventArgs e)
+        {
+            string datos =
+                $"Fecha: {DateTime.Now}\n" +
+                $"Paciente: {txtPaciente.Text}\n" +
+                $"Fisioterapeuta: {txtFisioterapeuta.Text}\n" +
+                $"Tratamiento: {txtTratamiento.Text}\n" +
+                $"Observación: {txtObservacion.Text}\n" +
+                "--------------------------\n";
+
+            File.AppendAllText("atenciones.txt", datos);
+
+            MessageBox.Show("Atención guardada correctamente.");
         }
     }
 }

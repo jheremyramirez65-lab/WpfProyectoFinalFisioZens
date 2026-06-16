@@ -43,21 +43,11 @@ namespace WpfProyectoFinal
 
         private void btnAgregarPacientes_Click(object sender, RoutedEventArgs e)
         {
-            contenedorPrincipal.Content = new TextBlock
-            {
-                Text = "Aquí irá el módulo Pacientes",
-                FontSize = 30
-            };
             contenedorPrincipal.Content = new Pacientes();
         }
 
         private void btnAgregarAtenciones_Click(object sender, RoutedEventArgs e)
         {
-            contenedorPrincipal.Content = new TextBlock
-            {
-                Text = "Aquí irá el módulo Atenciones",
-                FontSize = 30
-            };
             contenedorPrincipal.Content = new Atenciones();
         }
 
@@ -68,7 +58,9 @@ namespace WpfProyectoFinal
 
         private void CerrarSesion_Click(object sender, RoutedEventArgs e)
         {
-
+            WinLogin login = new WinLogin();
+            login.Show();
+            this.Close();
         }
     }
 }
