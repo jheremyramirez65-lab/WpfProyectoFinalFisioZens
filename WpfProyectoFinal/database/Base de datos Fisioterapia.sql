@@ -163,8 +163,34 @@ VALUES
 ('Andres', 'Torrez', 'Rehabilitación muscular', '70000019', 'Disponible'),
 ('Paola', 'Navarro', 'Fisioterapia Deportiva', '70000020', 'Ocupado');
 
+
+
+INSERT INTO Paciente (Nombre, Apellido, CI, Telefono, FechaNacimiento, Diagnostico)
+VALUES
+('Juan', 'Perez', '12345678', '71000001', '1995-03-15', 'Dolor lumbar'),
+('Maria', 'Gomez', '12345679', '71000002', '1992-07-10', 'Contractura cervical'),
+('Pedro', 'Lopez', '12345680', '71000003', '1988-11-22', 'Lesión de rodilla'),
+('Ana', 'Martinez', '12345681', '71000004', '2000-01-05', 'Escoliosis'),
+('Luis', 'Fernandez', '12345682', '71000005', '1997-09-30', 'Dolor de hombro'),
+('Sofia', 'Vargas', '12345683', '71000006', '1999-06-12', 'Tendinitis'),
+('Carlos', 'Rojas', '12345684', '71000007', '1985-04-08', 'Lumbalgia'),
+('Lucia', 'Mendoza', '12345685', '71000008', '2001-02-17', 'Dolor cervical'),
+('Miguel', 'Torrez', '12345686', '71000009', '1990-12-03', 'Rehabilitación muscular'),
+('Paola', 'Salazar', '12345687', '71000010', '1998-05-21', 'Lesión deportiva'),
+('Diego', 'Flores', '12345688', '71000011', '1993-10-11', 'Hernia discal'),
+('Valeria', 'Navarro', '12345689', '71000012', '1996-08-01', 'Dolor lumbar'),
+('Andres', 'Suarez', '12345690', '71000013', '1989-09-09', 'Desgarro muscular'),
+('Camila', 'Mora', '12345691', '71000014', '2002-03-25', 'Escoliosis leve'),
+('Fernando', 'Apaza', '12345692', '71000015', '1987-07-14', 'Dolor articular'),
+('Natalia', 'Quispe', '12345693', '71000016', '1994-11-19', 'Rehabilitación rodilla'),
+('Jorge', 'Villca', '12345694', '71000017', '1991-01-27', 'Contractura muscular'),
+('Elena', 'Cruz', '12345695', '71000018', '2000-06-06', 'Dolor de espalda'),
+('Ricardo', 'Choque', '12345696', '71000019', '1995-04-18', 'Lesión cervical'),
+('Gabriela', 'Pinto', '12345697', '71000020', '1998-12-29', 'Terapia postural');
+
 SELECT * FROM Rol;
 SELECT * FROM Usuario;
 SELECT * FROM Fisioterapeuta;
 SELECT * FROM Tratamiento;
+SELECT * FROM Paciente;
 GO
