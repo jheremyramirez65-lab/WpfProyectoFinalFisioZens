@@ -147,6 +147,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="database\Base de datos Fisioterapia.sql" />
     <Resource Include="Archivos\atenciones.txt" />
     <Resource Include="Archivos\facturas.txt" />
     <Resource Include="Archivos\pacientes.txt" />
