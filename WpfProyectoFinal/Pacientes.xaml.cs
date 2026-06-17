@@ -58,13 +58,31 @@ namespace WpfProyectoFinal
                     string.IsNullOrWhiteSpace(txtCI.Text) ||
                     string.IsNullOrWhiteSpace(txtTelefono.Text))
                 {
-                    MessageBox.Show("Complete los campos obligatorios.");
+                    MessageBox.Show("Complete todos los campos obligatorios.");
                     return;
                 }
 
-                if (!Regex.IsMatch(txtTelefono.Text, @"^\d{8,10}$"))
+                if (!Regex.IsMatch(txtNombre.Text, @"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$"))
                 {
-                    MessageBox.Show("El teléfono debe tener entre 8 y 10 números.");
+                    MessageBox.Show("Nombre inválido.");
+                    return;
+                }
+
+                if (!Regex.IsMatch(txtApellido.Text, @"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$"))
+                {
+                    MessageBox.Show("Apellido inválido.");
+                    return;
+                }
+
+                if (!Regex.IsMatch(txtCI.Text, @"^\d{8}$"))
+                {
+                    MessageBox.Show("CI inválido. Debe tener 8 dígitos.");
+                    return;
+                }
+
+                if (!Regex.IsMatch(txtTelefono.Text, @"^\d{8}$"))
+                {
+                    MessageBox.Show("Teléfono inválido. Debe tener 8 dígitos.");
                     return;
                 }
 

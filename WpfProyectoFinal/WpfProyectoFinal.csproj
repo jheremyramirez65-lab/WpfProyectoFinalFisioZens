@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Admin\Admin.xaml.cs">
+      <DependentUpon>Admin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Atenciones.xaml.cs">
       <DependentUpon>Atenciones.xaml</DependentUpon>
     </Compile>
@@ -65,8 +68,11 @@
     </Compile>
     <Compile Include="Modelos\Atencion.cs" />
     <Compile Include="Modelos\Factura.cs" />
+    <Compile Include="Modelos\Fisoterapeuta.cs" />
     <Compile Include="Modelos\Paciente.cs" />
     <Compile Include="Modelos\Persona.cs" />
+    <Compile Include="Modelos\Rol.cs" />
+    <Compile Include="Modelos\Tratamiento.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Pacientes.xaml.cs">
       <DependentUpon>Pacientes.xaml</DependentUpon>
@@ -77,6 +83,10 @@
     <Compile Include="WinSignUp.xaml.cs">
       <DependentUpon>WinSignUp.xaml</DependentUpon>
     </Compile>
+    <Page Include="Admin\Admin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Atenciones.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

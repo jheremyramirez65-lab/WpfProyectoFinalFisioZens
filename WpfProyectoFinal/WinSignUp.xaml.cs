@@ -67,9 +67,9 @@ namespace WpfProyectoFinal
                     return;
                 }
 
-                if (txtPassword.Password.Length < 10)
+                if (txtPassword.Password.Length < 6)
                 {
-                    MessageBox.Show("La contraseña debe tener mínimo 10 caracteres.");
+                    MessageBox.Show("La contraseña debe tener mínimo 6 caracteres.");
                     return;
                 }
 

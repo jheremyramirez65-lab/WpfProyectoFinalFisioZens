@@ -43,23 +43,33 @@ namespace WpfProyectoFinal
                     cn.Open();
 
                     string query = @"
-                        SELECT U.IdUsuario, U.Nombre, U.Apellido, R.NombreRol
-                        FROM Usuario U
-                        INNER JOIN Rol R ON U.IdRol = R.IdRol
-                        WHERE U.Correo = @usuario
-                        AND U.Contrasena = @contrasena
-                        AND R.NombreRol = 'Recepcionista'";
+                                SELECT U.IdUsuario, U.Nombre, U.Apellido, R.NombreRol
+                                FROM Usuario U
+                                INNER JOIN Rol R ON U.IdRol = R.IdRol
+                                WHERE U.Correo = @correo
+                                AND U.Contrasena = @contrasena";
 
                     SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@usuario", txtCorreo.Text);
+                    cmd.Parameters.AddWithValue("@correo", txtCorreo.Text);
                     cmd.Parameters.AddWithValue("@contrasena", txtPassword.Password);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     if (reader.Read())
                     {
-                        MainWindow menu = new MainWindow();
-                        menu.Show();
+                        string rol = reader["NombreRol"].ToString();
+
+                        if (rol == "Administrador")
+                        {
+                            Admin admin = new Admin();
+                            admin.Show();
+                        }
+                        else if (rol == "Recepcionista")
+                        {
+                            MainWindow menu = new MainWindow();
+                            menu.Show();
+                        }
+
                         this.Close();
                     }
                     else
