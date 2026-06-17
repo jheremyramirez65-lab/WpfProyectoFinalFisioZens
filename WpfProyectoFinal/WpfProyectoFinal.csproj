@@ -136,10 +136,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Archivos de texto\atenciones.txt" />
-    <Resource Include="Archivos de texto\facturas.txt" />
-    <Resource Include="Archivos de texto\pacientes.txt" />
-    <Resource Include="Archivos de texto\usuarios.txt" />
+    <Resource Include="Archivos\atenciones.txt" />
+    <Resource Include="Archivos\facturas.txt" />
+    <Resource Include="Archivos\pacientes.txt" />
+    <Resource Include="Archivos\usuarios.txt" />
     <Content Include="database\BDFisioterapia.sql" />
   </ItemGroup>
   <ItemGroup>

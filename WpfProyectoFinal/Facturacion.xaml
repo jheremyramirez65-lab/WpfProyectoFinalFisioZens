@@ -7,28 +7,54 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="800">
     <Grid Background="AliceBlue" Margin="10">
-        <StackPanel Margin="30">
+        <StackPanel Margin="25">
+
             <TextBlock Text="Facturación"
-                       FontSize="30"
+                       FontSize="28"
                        FontWeight="Bold"
                        Foreground="#1F2937"
-                       Margin="0,0,0,20"/>
+                       Margin="0,0,0,15"/>
 
-            <TextBlock Text="Paciente"/>
-            <TextBox x:Name="txtPaciente" Height="35" Margin="0,5,0,10"/>
+            <TextBlock Text="Seleccione una atención"/>
+            <ComboBox x:Name="cbAtencion"
+                      Height="34"
+                      Margin="0,5,0,10"
+                      DisplayMemberPath="Detalle"
+                      SelectedValuePath="IdAtencion"
+                      SelectionChanged="cbAtencion_SelectionChanged"/>
 
-            <TextBlock Text="Tratamiento"/>
-            <TextBox x:Name="txtTratamiento" Height="35" Margin="0,5,0,10"/>
+            <TextBlock Text="Subtotal Bs."/>
+            <TextBox x:Name="txtSubtotal"
+                     Height="34"
+                     Margin="0,5,0,10"
+                     IsReadOnly="True"/>
 
-            <TextBlock Text="Monto Bs."/>
-            <TextBox x:Name="txtMonto" Height="35" Margin="0,5,0,10"/>
+            <TextBlock Text="Descuento Bs."/>
+            <TextBox x:Name="txtDescuento"
+                     Height="34"
+                     Margin="0,5,0,10"
+                     Text="0"/>
+
+            <TextBlock Text="Método de pago"/>
+            <ComboBox x:Name="cbMetodoPago"
+                      Height="34"
+                      Margin="0,5,0,10">
+                <ComboBoxItem Content="Efectivo"/>
+                <ComboBoxItem Content="QR"/>
+                <ComboBoxItem Content="Tarjeta"/>
+            </ComboBox>
 
             <Button x:Name="btnGuardarFactura"
-                Content="Guardar Factura en TXT"
+                    Content="Generar Factura"
                     Height="40"
                     Background="#0F4C81"
                     Foreground="White"
                     Click="btnGuardarFactura_Click"/>
+
+            <DataGrid x:Name="dgFacturas"
+                      Height="150"
+                      Margin="0,15,0,0"
+                      AutoGenerateColumns="True"/>
         </StackPanel>
     </Grid>
 </UserControl>
