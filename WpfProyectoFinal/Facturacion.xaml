@@ -7,9 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="800">
     <Grid Background="AliceBlue" Margin="10">
-        <StackPanel Margin="25">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="20">
 
-            <TextBlock Text="Facturación"
+                <TextBlock Text="Facturación"
                        FontSize="28"
                        FontWeight="Bold"
                        Foreground="#1F2937"
@@ -56,5 +57,6 @@
                       Margin="0,15,0,0"
                       AutoGenerateColumns="True"/>
         </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>

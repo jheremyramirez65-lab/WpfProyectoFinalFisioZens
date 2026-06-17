@@ -30,7 +30,7 @@ namespace WpfProyectoFinal
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtUsuario.Text) ||
+                if (string.IsNullOrWhiteSpace(txtCorreo.Text) ||
                     string.IsNullOrWhiteSpace(txtPassword.Password))
                 {
                     MessageBox.Show("Ingrese usuario y contraseña.");
@@ -47,12 +47,12 @@ namespace WpfProyectoFinal
                         SELECT U.IdUsuario, U.Nombre, U.Apellido, R.NombreRol
                         FROM Usuario U
                         INNER JOIN Rol R ON U.IdRol = R.IdRol
-                        WHERE U.NombreUsuario = @usuario
+                        WHERE U.Correo = @usuario
                         AND U.Contrasena = @contrasena
                         AND R.NombreRol = 'Recepcionista'";
 
                     SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@usuario", txtUsuario.Text);
+                    cmd.Parameters.AddWithValue("@usuario", txtCorreo.Text);
                     cmd.Parameters.AddWithValue("@contrasena", txtPassword.Password);
 
                     SqlDataReader reader = cmd.ExecuteReader();

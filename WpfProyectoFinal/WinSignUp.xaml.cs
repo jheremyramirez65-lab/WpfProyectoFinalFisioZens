@@ -39,15 +39,38 @@ namespace WpfProyectoFinal
                 else if (rbOtro.IsChecked == true) genero = "Otro";
 
                 if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                    string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                    string.IsNullOrWhiteSpace(txtNombreUsuario.Text) ||
-                    string.IsNullOrWhiteSpace(txtPassword.Password) ||
-                    string.IsNullOrWhiteSpace(txtCelular.Text) ||
-                    string.IsNullOrWhiteSpace(txtCorreo.Text) ||
-                    cbPais.SelectedItem == null ||
-                    string.IsNullOrWhiteSpace(genero))
+    string.IsNullOrWhiteSpace(txtApellido.Text) ||
+    string.IsNullOrWhiteSpace(txtPassword.Password) ||
+    string.IsNullOrWhiteSpace(txtCelular.Text) ||
+    string.IsNullOrWhiteSpace(txtCorreo.Text) ||
+    cbPais.SelectedItem == null ||
+    string.IsNullOrWhiteSpace(genero))
                 {
                     MessageBox.Show("Complete todos los campos.");
+                    return;
+                }
+
+                if (!Regex.IsMatch(txtNombre.Text, @"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"))
+                {
+                    MessageBox.Show("El nombre solo debe contener letras.");
+                    return;
+                }
+
+                if (!Regex.IsMatch(txtApellido.Text, @"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"))
+                {
+                    MessageBox.Show("El apellido solo debe contener letras.");
+                    return;
+                }
+
+                if (!Regex.IsMatch(txtCelular.Text, @"^\d{8}$"))
+                {
+                    MessageBox.Show("El celular debe tener exactamente 8 dígitos.");
+                    return;
+                }
+
+                if (txtPassword.Password.Length < 10)
+                {
+                    MessageBox.Show("La contraseña debe tener mínimo 10 caracteres.");
                     return;
                 }
 
@@ -57,15 +80,14 @@ namespace WpfProyectoFinal
                     return;
                 }
 
-                if (!Regex.IsMatch(txtCelular.Text, @"^\d{8,10}$"))
-                {
-                    MessageBox.Show("El celular debe tener entre 8 y 10 números.");
-                    return;
-                }
+                string correoMinuscula = txtCorreo.Text.ToLower();
+                string nombreMinuscula = txtNombre.Text.ToLower();
+                string apellidoMinuscula = txtApellido.Text.ToLower();
 
-                if (txtPassword.Password.Length < 6)
+                if (!correoMinuscula.Contains(nombreMinuscula) &&
+                    !correoMinuscula.Contains(apellidoMinuscula))
                 {
-                    MessageBox.Show("La contraseña debe tener mínimo 6 caracteres.");
+                    MessageBox.Show("El correo debe contener el nombre o apellido del usuario.");
                     return;
                 }
 
@@ -89,7 +111,7 @@ namespace WpfProyectoFinal
                     cmd.Parameters.AddWithValue("@Celular", txtCelular.Text);
                     cmd.Parameters.AddWithValue("@Pais", pais);
                     cmd.Parameters.AddWithValue("@Genero", genero);
-                    cmd.Parameters.AddWithValue("@NombreUsuario", txtNombreUsuario.Text);
+                    cmd.Parameters.AddWithValue("@NombreUsuario", txtCorreo.Text);
                     cmd.Parameters.AddWithValue("@Contrasena", txtPassword.Password);
 
                     cmd.ExecuteNonQuery();
@@ -99,7 +121,6 @@ namespace WpfProyectoFinal
                     string datosUsuario =
                         $"Nombre: {txtNombre.Text}\n" +
                         $"Apellido: {txtApellido.Text}\n" +
-                        $"Usuario: {txtNombreUsuario.Text}\n" +
                         $"Correo: {txtCorreo.Text}\n" +
                         $"Celular: {txtCelular.Text}\n" +
                         $"País: {pais}\n" +
