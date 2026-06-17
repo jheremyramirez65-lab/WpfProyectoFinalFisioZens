@@ -24,7 +24,6 @@ namespace WpfProyectoFinal
     /// </summary>
     public partial class Facturacion : UserControl
     {
-        string conexion = @"Data Source=LAPTOP-L87KBM03\FISIOTERAPIA;Initial Catalog=BDFisioterapia;User ID=sa;Password=123456";
 
         public Facturacion()
         {
@@ -35,7 +34,7 @@ namespace WpfProyectoFinal
 
         private void CargarAtenciones()
         {
-            using (SqlConnection cn = new SqlConnection(conexion))
+            using (SqlConnection cn = Conexion.ObtenerConexion())
             {
                 cn.Open();
 
@@ -59,7 +58,7 @@ namespace WpfProyectoFinal
 
         private void CargarFacturas()
         {
-            using (SqlConnection cn = new SqlConnection(conexion))
+            using (SqlConnection cn = Conexion.ObtenerConexion())
             {
                 cn.Open();
 
@@ -131,7 +130,7 @@ namespace WpfProyectoFinal
                 decimal total = subtotal - descuento;
                 string metodoPago = ((ComboBoxItem)cbMetodoPago.SelectedItem).Content.ToString();
 
-                using (SqlConnection cn = new SqlConnection(conexion))
+                using (SqlConnection cn = Conexion.ObtenerConexion())
                 {
                     cn.Open();
 

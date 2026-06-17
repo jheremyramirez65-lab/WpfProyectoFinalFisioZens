@@ -23,7 +23,6 @@ namespace WpfProyectoFinal
     /// </summary>
     public partial class Atenciones : UserControl
     {
-        string conexion = @"Data Source=LAPTOP-L87KBM03\FISIOTERAPIA;Initial Catalog=BDFisioterapia;User ID=sa;Password=123456";
 
         public Atenciones()
         {
@@ -36,7 +35,7 @@ namespace WpfProyectoFinal
 
         private void CargarPacientes()
         {
-            using (SqlConnection cn = new SqlConnection(conexion))
+            using (SqlConnection cn = Conexion.ObtenerConexion())
             {
                 cn.Open();
 
@@ -54,7 +53,7 @@ namespace WpfProyectoFinal
 
         private void CargarFisioterapeutasDisponibles()
         {
-            using (SqlConnection cn = new SqlConnection(conexion))
+            using (SqlConnection cn = Conexion.ObtenerConexion())
             {
                 cn.Open();
 
@@ -73,7 +72,7 @@ namespace WpfProyectoFinal
 
         private void CargarTratamientos()
         {
-            using (SqlConnection cn = new SqlConnection(conexion))
+            using (SqlConnection cn = Conexion.ObtenerConexion())
             {
                 cn.Open();
 
@@ -90,7 +89,7 @@ namespace WpfProyectoFinal
 
         private void CargarAtenciones()
         {
-            using (SqlConnection cn = new SqlConnection(conexion))
+            using (SqlConnection cn = Conexion.ObtenerConexion())
             {
                 cn.Open();
 
@@ -138,7 +137,7 @@ namespace WpfProyectoFinal
                     estado = "Atendido";
                 }
 
-                using (SqlConnection cn = new SqlConnection(conexion))
+                using (SqlConnection cn = Conexion.ObtenerConexion())
                 {
                     cn.Open();
 

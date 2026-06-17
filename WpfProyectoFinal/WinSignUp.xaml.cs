@@ -21,7 +21,6 @@ namespace WpfProyectoFinal
     /// </summary>
     public partial class WinSignUp : Window
     {
-        string conexion = @"Data Source=LAPTOP-L87KBM03\FISIOTERAPIA;Initial Catalog=BDFisioterapia;User ID=sa;Password=123456";
 
         public WinSignUp()
         {
@@ -39,12 +38,12 @@ namespace WpfProyectoFinal
                 else if (rbOtro.IsChecked == true) genero = "Otro";
 
                 if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-    string.IsNullOrWhiteSpace(txtApellido.Text) ||
-    string.IsNullOrWhiteSpace(txtPassword.Password) ||
-    string.IsNullOrWhiteSpace(txtCelular.Text) ||
-    string.IsNullOrWhiteSpace(txtCorreo.Text) ||
-    cbPais.SelectedItem == null ||
-    string.IsNullOrWhiteSpace(genero))
+                    string.IsNullOrWhiteSpace(txtApellido.Text) ||
+                    string.IsNullOrWhiteSpace(txtPassword.Password) ||
+                    string.IsNullOrWhiteSpace(txtCelular.Text) ||
+                    string.IsNullOrWhiteSpace(txtCorreo.Text) ||
+                    cbPais.SelectedItem == null ||
+                    string.IsNullOrWhiteSpace(genero))
                 {
                     MessageBox.Show("Complete todos los campos.");
                     return;
@@ -93,7 +92,7 @@ namespace WpfProyectoFinal
 
                 string pais = ((ComboBoxItem)cbPais.SelectedItem).Content.ToString();
 
-                using (SqlConnection cn = new SqlConnection(conexion))
+                using (SqlConnection cn = Conexion.ObtenerConexion())
                 {
                     cn.Open();
 

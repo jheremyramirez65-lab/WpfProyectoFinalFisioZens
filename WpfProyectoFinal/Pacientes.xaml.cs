@@ -25,7 +25,6 @@ namespace WpfProyectoFinal
     /// </summary>
     public partial class Pacientes : UserControl
     {
-        string conexion = @"Data Source=LAPTOP-L87KBM03\FISIOTERAPIA;Initial Catalog=BDFisioterapia;User ID=sa;Password=123456";
 
         public Pacientes()
         {
@@ -35,7 +34,7 @@ namespace WpfProyectoFinal
 
         private void CargarPacientes()
         {
-            using (SqlConnection cn = new SqlConnection(conexion))
+            using (SqlConnection cn = Conexion.ObtenerConexion())
             {
                 cn.Open();
 
@@ -69,7 +68,7 @@ namespace WpfProyectoFinal
                     return;
                 }
 
-                using (SqlConnection cn = new SqlConnection(conexion))
+                using (SqlConnection cn = Conexion.ObtenerConexion())
                 {
                     cn.Open();
 

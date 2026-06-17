@@ -59,6 +59,7 @@
     <Compile Include="Atenciones.xaml.cs">
       <DependentUpon>Atenciones.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Conexion.cs" />
     <Compile Include="Facturacion.xaml.cs">
       <DependentUpon>Facturacion.xaml</DependentUpon>
     </Compile>

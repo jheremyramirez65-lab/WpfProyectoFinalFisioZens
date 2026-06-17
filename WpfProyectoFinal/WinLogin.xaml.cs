@@ -37,9 +37,8 @@ namespace WpfProyectoFinal
                     return;
                 }
 
-                string conexion = @"Data Source=LAPTOP-L87KBM03\FISIOTERAPIA;Initial Catalog=BDFisioterapia;User ID=sa;Password=123456";
 
-                using (SqlConnection cn = new SqlConnection(conexion))
+                using (SqlConnection cn = Conexion.ObtenerConexion())
                 {
                     cn.Open();
 
